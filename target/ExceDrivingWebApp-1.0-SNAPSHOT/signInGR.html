@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title> ExceDriving: Είσοδος </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+         <style>
+             
+             *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: var(--body-font);        
+                 
+             }
+             
+             body{
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 min-height: 100vh;
+                 background: var(--body-color);
+             }
+             
+             .wrapper{
+                 position: relative;
+                 width: 750px;
+                 height: 450px;
+                 background: transparent;
+                 border: 2px solid #3ed64d;  
+                 box-shadow: 0 0 25px var(--text-color-one);
+                 overflow: hidden;
+                 
+             }
+             
+             .wrapper .form-box{
+                 position: absolute;
+                 top: 0;
+                 width: 50%;
+                 height: 100%;
+                 background-color: var(--text-color-one);
+                 display: flex;
+                 flex-direction: column;
+                 justify-content: center;
+             }
+             
+             .wrapper .form-box.login{
+                 left: 0;
+                 padding: 0 60px 0 40px;
+                 
+             }
+             
+             .wrapper .form-box.register{
+                 right:0;
+                 padding: 0 60px 0 40px;
+                 display: none;
+                
+             }
+             
+             .form-box h2{
+                 font-size: 32px;
+                 color: var(--body-color);
+                 text-align: center;
+             }
+             
+             .form-box .input-box{
+                 position: relative;
+                 width: 100%;
+                 height: 50px;
+                 margin: 25px 0;
+             }
+             
+             .input-box input{
+                 width: 100%;
+                 height: 100%;
+                 background: transparent;
+                 border: none;
+                 font-size: 16px;
+                 padding-right: 23px;
+                 color: #0f5703;
+                 font-weight: 500;
+                 outline: none;
+                 border-bottom: 2px solid #dee3e0;
+                 transition: .5s;
+             }
+             
+             .input-box input:focus,
+             .input-box input:valid {
+                 border-bottom-color: #104708;
+             }
+             
+             .input-box label{
+                 position: absolute;
+                 top: 50%;
+                 left: 0;
+                 transform: translateY(-50%);
+                 font-size: 16px;
+                 color: var(--body-color);
+                 pointer-events: none;
+                 transition: .5s;
+             }
+             
+             .input-box input:focus~label,
+             .input-box input:valid~label {
+                 top: -5px;
+                 color: #104708;
+             }
+             
+             .input-box i{
+                 position: absolute;
+                 top: 50%;
+                 right: 0;
+                 transform: translateY(-50%);
+                 font-size: 18px;
+                 color: var(--body-color);
+                 transition: .5s;
+             }
+             
+             .input-box input:focus~i,
+             .input-box input:valid~i {
+                 color: #104708;
+             }
+             
+             
+             
+             .btn{
+                 posistion: relative;
+                 width: 100%;
+                 height: 45px; 
+                 background: transparent;
+                 border: 2px solid var(--body-color);
+                 outline: none;
+                 border-radius: 40px;
+                 cursor: pointer;
+                 font-size: 16px;
+                 color: var(--body-color);
+                 background: linear-gradient(#11bf40, #99d19b);
+                 font-weight: var(--font-semi-bold);
+                 z-index: 1;
+                 overflow: hidden;
+                 
+             }
+             
+             .btn:hover{
+                 background: linear-gradient(#194d11, #29801c);
+             }
+             
+             .form-box .logreg-link{
+                 font-size: 14.5px;
+                 color: var(--body-color);
+                 text-align: center;
+                 margin: 20px 0 10px;
+             }
+             
+             .logreg-link p a{
+                 color: #b8ebb0;
+                 text-decoration: none;
+                 font-weight: var(--font-semi-bold);
+             }
+             
+             .logreg-link p a:hover{
+                 text-decoration: underline;
+                
+             }
+             
+             .wrapper .info-text{
+                 position: absolute;
+                 top: 0;
+                 width: 50%;
+                 height: 100%;
+                
+                 display: flex;
+                 flex-direction: column;
+                 justify-content: center;
+             }
+             
+             .wrapper .info-text.login{
+                 right: 0;
+                 text-align: right;
+                 padding: 0 40px 60px 150px;
+                 
+             }
+             
+             .wrapper .info-text.register{
+                 left: 0;
+                 text-align: left;
+                 padding: 0 150px 60px 40px;
+                 display: none;
+             }
+             
+             .info-text h2{
+                 font-size: 36px;
+                 color: var(--text-color-one);
+                 line-height: 1.3;
+                 text-transform: uppercase;
+             }
+             
+             .info-text p{
+                 font-size: 16px;
+                 color: var(--text-color-one);
+             }
+             
+             .wrapper .bg-animate{
+                 position: absolute;
+                 top: -4px;
+                 right: 0;
+                 width: 850px;
+                 height: 600px;
+                 background: linear-gradient(45deg, var(--body-color), #2e332f);
+                 border-bottom: 3px solid var(--text-color-one);
+                 /*transform: rotate(0) skewY(0);*/
+                 transform: rotate(10deg) skewY(40deg); 
+                 transform-origin: bottom right;   
+             }
+             
+             .wrapper .bg-animate2{
+                 position: absolute;
+                 top: 100%;
+                 left:250px;
+                 width: 850px;
+                 height: 700px;
+                 background: var(--body-color);
+                 border-top: 3px solid #30783a;
+                 /* transform: rotate(-11deg) skewY(-41deg); */
+                 transform: rotate(0) skewY(0); 
+                 transform-origin: bottom left;
+                 
+             }
+             
+             
+             :root{
+             --header-height: 3.5rem;
+                
+           /* Colors mode Hex */
+           --text-color-one: #11bf40;
+           --text-color-two: #dee3e0;
+           --body-color: #050505;
+           --background-color: #404040;
+           --shadow-color1: #436e42;
+           --shadow-color2: #4f944d;
+           
+            /* Font and Typography */
+            --body-font: "Bahnschrift", sans-serif;
+            --h1-font-size: 3rem;
+            --h3-font-size: 2.5rem;
+            --normal-font-size: .938rem;
+            --small-font-size: .813rem;
+            
+            /* Font Weight */
+            --font-regular: 500;
+            --font-semi-bold: 600;
+            --font-bold: 700;
+            
+            /* Z Index */
+            --z-tooltip: 2;
+            --z-fixed: 10;
+            
+            @keyframes move{
+                0%, 49.99%{
+                    opacity: 0;
+                    z-index: 1;
+                }
+                50%, 100%{
+                    opacity: 1;
+                    z-index: 5;
+                }
+            }
+            
+         </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <span class="bg-animate"></span>
+             <span class="bg-animate2"></span>
+            <div class="form-box login">
+                <h2>Είσοδος</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label>Όνομα Χρήστη</label>
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" required>
+                        <label>Κωδικός</label>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <button type="submit" class="btn">Είσοδος</button>
+                    <div class="logreg-link">
+                        <p> Δεν έχετε λογαριασμό; <a href="signUpGR.html" class="register-link">Εγγραφή</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="info-text login">
+                <h2> Καλως ορισατε πισω!</h2>
+                <p> Συνδεθείτε στον προσωπικό σας λογαριασμό για να συνεχίσετε!
+                    Οι AI δασκαλοί σας περιμένουν. </p>
+            </div>
+             
+             <div class="form-box register">
+                <h2>Join Us</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label>Όνομα Χρήστη</label>
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                     <div class="input-box">
+                        <input type="text" required>
+                        <label>Email</label>
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" required>
+                        <label>Kωδικός</label>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <button type="submit" class="btn">Εγγραφή</button>
+                    <div class="logreg-link">
+                        <p> Έχετε ήδη λογαριασμό; <a href="signInGR.html" class="register-link">Είσοδος</a></p>
+                    </div>
+                </form>
+            </div>
+             <div class="info-text register">
+                <h2> Welcome back Student!</h2>
+                <p> Sign in to your account to continue your lessons.
+                    Your AI instructors are waiting for you! </p>
+            </div>
+        </div>
+        
+    </body>
+</html>
